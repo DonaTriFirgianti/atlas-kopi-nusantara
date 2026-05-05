@@ -28,22 +28,22 @@ export default function App() {
             {/* Redirect / → /beranda */}
           <Route path="/" element={<Navigate to="/beranda" replace />} />
 
-          {/* ── STATIS 1: Home ─────────────────── */}
+          {/* ── Home ── */}
           <Route path="/beranda" element={<Home />} />
 
-          {/* ── STATIS 2: Peta ─────────────────── */}
+          {/* ── Peta ── */}
           <Route path="/peta" element={<Peta />} />
 
-          {/* ── STATIS 3: Koleksi ──────────────── */}
+          {/* ── Koleksi ── */}
           <Route path="/koleksi" element={<Koleksi />} />
 
-          {/* ── STATIS 4: Tentang ──────────────── */}
+          {/* ── Tentang ── */}
           <Route path="/tentang" element={<Tentang />} />
 
-          {/* ── DINAMIS: Detail Kopi by ID ──────── */}
+          {/* ── Detail Kopi by ID ── */}
           <Route path="/kopi/:id" element={<DetailKopi />} />
 
-          {/* ── 404 ────────────────────────────── */}
+          {/* ── 404 ── */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
