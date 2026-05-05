@@ -1,0 +1,341 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Brand Palette ─────────────────────────── */
+
+  /* Deep Green (background family) */
+  --color-green-950: #0a1a12;
+  --color-green-900: #1B4332;
+  --color-green-800: #2d6a4f;
+  --color-green-700: #40916c;
+  --color-green-600: #52b788;
+  --color-green-500: #74c69d;
+  --color-green-400: #95d5b2;
+  --color-green-300: #b7e4c7;
+  --color-green-200: #d8f3dc;
+  --color-green-50:  #f0faf2;
+
+  /* Coffee Brown (primary accent) */
+  --color-brown-900: #3d2a1e;
+  --color-brown-800: #5c3d2b;
+  --color-brown-700: #6F4E37;
+  --color-brown-600: #8b6346;
+  --color-brown-500: #a87d5a;
+  --color-brown-400: #c4986e;
+  --color-brown-300: #d4b08a;
+  --color-brown-200: #e8d0b5;
+  --color-brown-100: #f3e8dc;
+  --color-brown-50:  #faf4ee;
+
+  /* Sand (neutral mid-tones) */
+  --color-sand-900: #5a5650;
+  --color-sand-700: #8a857c;
+  --color-sand-500: #DAD7CD;
+  --color-sand-200: #eceae5;
+  --color-sand-50:  #f9f8f6;
+
+  /* Soft Cream (text / light backgrounds) */
+  --color-cream-100: #F8F9FA;
+  --color-cream-200: #e9ecef;
+  --color-cream-300: #dee2e6;
+  --color-cream-400: #ced4da;
+  --color-cream-500: #adb5bd;
+
+  /* Accent Gold */
+  --color-gold-900: #4a3a1c;
+  --color-gold-800: #6b5328;
+  --color-gold-700: #8a6e3a;
+  --color-gold-600: #A68A64;
+  --color-gold-400: #c4a97d;
+  --color-gold-200: #e8d5b0;
+  --color-gold-100: #f5ecda;
+  --color-gold-50:  #fdf8f0;
+
+  /* Fonts */
+  --font-display: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+  --font-body:    "DM Sans", system-ui, sans-serif;
+  --font-mono:    "JetBrains Mono", "DM Mono", monospace;
+
+  /* Animations */
+  --animate-fade-up:    fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-fade-in:    fadeIn 0.5s ease-out forwards;
+  --animate-float:      float 6s ease-in-out infinite;
+  --animate-shimmer:    shimmer 2s linear infinite;
+  --animate-glow-pulse: glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 0.9; }
+}
+
+/* ─── BASE ─────────────────────────────────── */
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--color-cream-100);
+  color: var(--color-green-900);
+  font-family: var(--font-body);
+  font-size: 15px;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+a { text-decoration: none; }
+
+/* ─── SCROLLBAR ─────────────────────────────── */
+::-webkit-scrollbar       { width: 5px; }
+::-webkit-scrollbar-track { background: var(--color-cream-200); }
+::-webkit-scrollbar-thumb { background: var(--color-sand-500); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-green-600); }
+
+/* ─── BUTTONS ────────────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, var(--color-gold-600), var(--color-gold-700));
+  color: var(--color-cream-100);
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.7rem 1.6rem;
+  border-radius: 2px;
+  border: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px color-mix(in srgb, var(--color-gold-600) 30%, transparent);
+  background: linear-gradient(135deg, var(--color-gold-400), var(--color-gold-600));
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid color-mix(in srgb, var(--color-green-600) 40%, transparent);
+  color: var(--color-green-700);
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.7rem 1.6rem;
+  border-radius: 2px;
+  transition: all 0.25s;
+  background: transparent;
+  cursor: pointer;
+}
+.btn-ghost:hover {
+  background: color-mix(in srgb, var(--color-green-200) 40%, transparent);
+  border-color: var(--color-green-600);
+  color: var(--color-green-800);
+  transform: translateY(-1px);
+}
+
+/* ─── CARDS ─────────────────────────────────── */
+.card-kopi {
+  background: #ffffff;
+  border: 1px solid var(--color-cream-300);
+  border-top: 3px solid var(--color-gold-600);
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+.card-kopi:hover {
+  transform: translateY(-6px);
+  border-color: var(--color-sand-500);
+  border-top-color: var(--color-gold-400);
+  box-shadow: 0 24px 48px color-mix(in srgb, var(--color-green-900) 12%, transparent);
+}
+
+/* ─── BADGE ─────────────────────────────────── */
+.badge-pulau {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.6rem;
+  border-radius: 2px;
+  background: color-mix(in srgb, var(--color-green-200) 60%, transparent);
+  color: var(--color-green-800);
+  border: 1px solid var(--color-green-300);
+}
+
+/* ─── SECTION HEADINGS ───────────────────────── */
+.section-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-green-700);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.6rem;
+}
+.section-eyebrow::before,
+.section-eyebrow::after {
+  content: '';
+  height: 1px;
+  width: 1.5rem;
+  background: var(--color-green-700);
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: var(--color-green-900);
+  line-height: 1.1;
+  margin-bottom: 0.4rem;
+}
+.section-subtitle {
+  font-family: var(--font-body);
+  color: var(--color-sand-700);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+/* ─── TASTING BARS ───────────────────────────── */
+.tasting-bar {
+  height: 4px;
+  border-radius: 0;
+  background: var(--color-cream-300);
+  overflow: hidden;
+}
+.tasting-fill {
+  height: 100%;
+  transition: width 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ─── ORNAMENT DIVIDER ───────────────────────── */
+.ornament-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--color-sand-500);
+  font-size: 0.75rem;
+}
+.ornament-divider::before,
+.ornament-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-sand-500), transparent);
+}
+
+/* ─── PAGE TRANSITION ────────────────────────── */
+.page-enter { animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+/* ─── GLASS PANEL ────────────────────────────── */
+.glass-panel {
+  background: color-mix(in srgb, #ffffff 70%, transparent);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--color-sand-500);
+  border-radius: 2px;
+}
+
+/* ─── SKELETON ───────────────────────────────── */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-cream-200) 25%,
+    var(--color-sand-200) 50%,
+    var(--color-cream-200) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.8s infinite;
+  border-radius: 2px;
+}
+
+/* ─── CORNER DECORATIONS ─────────────────────── */
+.corner-tl, .corner-br {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  border-color: color-mix(in srgb, var(--color-gold-600) 40%, transparent);
+  border-style: solid;
+  pointer-events: none;
+}
+.corner-tl { top: 2rem; left: 2rem; border-width: 1px 0 0 1px; }
+.corner-br { bottom: 2rem; right: 2rem; border-width: 0 1px 1px 0; }
+
+/* ─── LEAFLET MAP OVERRIDES ──────────────────── */
+.leaflet-container {
+  background: #e8f4e8 !important;
+  font-family: var(--font-body) !important;
+}
+.leaflet-popup-content-wrapper {
+  background: #ffffff !important;
+  border: 1px solid color-mix(in srgb, var(--color-gold-600) 30%, transparent) !important;
+  border-radius: 2px !important;
+  box-shadow: 0 8px 24px rgba(27,67,50,0.15) !important;
+  color: var(--color-green-900) !important;
+}
+.leaflet-popup-content { margin: 14px 18px !important; }
+.leaflet-popup-tip { background: #ffffff !important; }
+.leaflet-control-zoom a {
+  background: #ffffff !important;
+  color: var(--color-green-900) !important;
+  border-color: var(--color-cream-300) !important;
+}
+.leaflet-control-zoom a:hover { background: var(--color-cream-200) !important; }
+.leaflet-control-attribution {
+  background: rgba(248,249,250,0.9) !important;
+  color: var(--color-sand-700) !important;
+}
+.leaflet-control-attribution a { color: var(--color-green-700) !important; }
+
+/* ─── MAP POPUP CONTENT ──────────────────────── */
+.popup-name {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-green-900);
+  margin-bottom: 4px;
+}
+.popup-loc {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--color-sand-700);
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+.popup-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.popup-tag {
+  font-size: 0.62rem;
+  padding: 2px 8px;
+  border: 1px solid color-mix(in srgb, var(--color-green-600) 30%, transparent);
+  color: var(--color-green-700);
+  background: var(--color-green-200);
+}
