@@ -131,15 +131,3 @@ npm install
 npm run dev
 # Aplikasi berjalan di http://localhost:5173
 ```
-
----
-
-## 📜 Lisensi
-
-Proyek ini dibuat untuk keperluan edukasi dan dokumentasi kopi Indonesia.
-
----
-
-<p align="center">
-  Dibuat dengan ☕ dan rasa cinta terhadap kopi Nusantara
-</p>
