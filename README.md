@@ -11,7 +11,6 @@ Atlas Kopi Nusantara adalah proyek dokumentasi dan eksplorasi kopi Indonesia ber
 - **Peta Interaktif** — Visualisasi persebaran kopi di seluruh kepulauan Indonesia menggunakan Leaflet.js, lengkap dengan marker emoji dan tooltip hover.
 - **Koleksi Terfilter** — Cari dan saring kopi berdasarkan nama, daerah, pulau asal, serta urutkan berdasarkan body, keasaman, atau kemanisan.
 - **Halaman Detail Kopi** — Profil lengkap per varietas dengan tiga tab: *Profil*, *Tasting Notes*, dan *Asal & Sejarah*.
-- **Bookmark Favorit** — Simpan kopi favorit ke local storage, tersedia di semua sesi.
 - **Statistik Koleksi** — Menampilkan total varietas, jumlah pulau penghasil, dan sebaran berdasarkan proses pengolahan.
 
 ---
